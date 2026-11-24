@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Myko Leo Social – Anmeldung</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:560px;margin:40px auto;padding:0 16px;background:#fafafa;color:#1a1a1a}
+@media (prefers-color-scheme:dark){body{background:#111;color:#eee}}</style></head>
+<body><p id="m">Weiterleitung zum lokalen Programm …</p>
+<script>
+// Leitet den Login-Rückruf (code, state) an das lokale CLI auf diesem Rechner weiter.
+// Es wird nichts gespeichert oder an Dritte gesendet.
+(function(){
+  var q = location.search || "";
+  if (!/[?&](code|error)=/.test(q)) { document.getElementById("m").textContent = "Keine Anmeldedaten in der Adresse."; return; }
+  location.replace("http://localhost:8765/callback" + q);
+})();
+</script></body></html>
